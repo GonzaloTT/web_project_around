@@ -14,8 +14,26 @@
 
 .header__element {
   max-width: 880px;
-  opacity: 0.7;
+  opacity: 1;
   border-width: 1px;
   margin: 0;
   padding-top: 41px;
+}
+
+@media screen and (max-width: 543px) {
+  .header {
+    max-width: 320px;
+    padding-top: 28px;
+    margin: 0;
+  }
+
+  .header__title {
+    max-width: 126px;
+    margin: 0 auto 0 27px;
+  }
+
+  .header__element {
+    max-width: 320px;
+    padding-top: 32px;
+  }
 }
