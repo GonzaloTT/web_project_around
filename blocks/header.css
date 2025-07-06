@@ -1,1 +1,21 @@
+.header {
+  max-width: 880px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 45px;
+  margin: 0 200px;
+}
 
+.header__title {
+  max-width: 173px;
+  padding: 0;
+  margin: 0;
+}
+
+.header__element {
+  max-width: 880px;
+  opacity: 0.7;
+  border-width: 1px;
+  margin: 0;
+  padding-top: 41px;
+}
