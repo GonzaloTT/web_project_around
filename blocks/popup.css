@@ -1,0 +1,131 @@
+.popup {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.popup_opened {
+  display: flex;
+}
+
+.popup__container {
+  position: relative;
+  background-color: #fff;
+  max-width: 358px;
+  width: 100%;
+  border-radius: 10px;
+  padding: 36px;
+  box-shadow: 0px 0px 25px 0px #00000026;
+}
+
+.popup__close-button {
+  position: absolute;
+  top: 240px;
+  right: 685px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  max-width: 40px;
+}
+
+.popup__close-button_image {
+  width: 40px;
+  height: 40px;
+}
+
+.popup__title {
+  font-family: Inter;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 1;
+  color: #000;
+  margin: 0 27px 54px 1px;
+  max-width: 330px;
+}
+
+.popup__input {
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1;
+  border: none;
+  margin: 0 0 13px;
+  max-width: 358px;
+}
+
+.popup__input_element {
+  margin: 0 0 48px;
+  max-width: 358px;
+}
+
+.popup__save-button {
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1;
+  text-align: center;
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 2px;
+  border: 1px;
+  padding: 15px 125px;
+  max-width: 358px;
+  width: 100%;
+}
+
+.popup__save-button:hover {
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 543px) {
+  .popup__container {
+    max-width: 282px;
+    padding: 25px 22px;
+  }
+
+  .popup__close-button {
+    top: 0;
+    right: 0;
+    max-width: 28px;
+  }
+
+  .popup__close-button_image {
+    width: 28px;
+    height: 28px;
+  }
+
+  .popup__title {
+    font-size: 18px;
+    margin: 0 22px 76px 0;
+    max-width: 228px;
+  }
+
+  .popup__input {
+    margin: 0 0 9px;
+    max-width: 238px;
+  }
+
+  .popup__input_element {
+    margin: 0 0 46px;
+    max-width: 238px;
+  }
+
+  .popup__save-button {
+    font-size: 14px;
+    padding: 14px 92px;
+    max-width: 238px;
+    width: 100%;
+  }
+
+  .popup__save-button:hover {
+    opacity: 0.8;
+  }
+}

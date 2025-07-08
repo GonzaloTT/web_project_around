@@ -46,6 +46,46 @@
             />
           </button>
         </section>
+
+        <!-- Cuadro emergente Editar perfil -->
+        <div class="popup">
+          <button class="popup__close-button">
+            <img
+              src="images/Close_button.png"
+              alt="Boton"
+              class="popup__close-button_image"
+            />
+          </button>
+          <div class="popup__container">
+            <h3 class="popup__title">Editar perfil</h3>
+            <form class="popup__form">
+              <input
+                type="text"
+                class="popup__input"
+                placeholder="Nombre"
+                required
+              />
+              <img
+                src="images/Input_element.svg"
+                alt="Input element"
+                class="popup__input_element"
+              />
+              <input
+                type="text"
+                class="popup__input"
+                placeholder="Acerca de mí"
+                required
+              />
+              <img
+                src="images/Input_element.svg"
+                alt="Input element"
+                class="popup__input_element"
+              />
+              <button class="popup__save-button" type="submit">Guardar</button>
+            </form>
+          </div>
+        </div>
+
         <section class="grid">
           <div class="grid__item">
             <img
@@ -155,5 +195,6 @@
         <img src="images/Footer.svg" alt="Footer" class="footer__image" />
       </footer>
     </div>
+    <script src="scripts/script.js"></script>
   </body>
 </html>
