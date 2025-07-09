@@ -82,6 +82,76 @@
   height: 22px;
 }
 
+@media screen and (max-width: 1023px) {
+  .content {
+    max-width: 282px;
+    padding-top: 42px;
+    margin: 0 auto;
+  }
+
+  .content__profile {
+    max-width: 282px;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .content__image {
+    margin: 0 auto 30px;
+  }
+
+  .content__info {
+    max-width: 282px;
+  }
+
+  .content__name {
+    font-family: Inter;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1;
+    text-align: center;
+    margin: 0 10px 14px 0;
+  }
+
+  .content__job {
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1;
+    text-align: center;
+    margin: 0 0 36px;
+  }
+
+  .content__edit_button {
+    position: absolute;
+    top: 150px;
+    right: 16px;
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .content__edit_button_image {
+    width: 7px;
+    height: 7px;
+  }
+
+  .content__add_button {
+    width: 282px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+  }
+
+  .content__add_button_image {
+    width: 16px;
+    height: 16px;
+  }
+}
+
 @media screen and (max-width: 543px) {
   .content {
     max-width: 282px;

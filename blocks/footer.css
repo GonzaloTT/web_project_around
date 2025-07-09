@@ -8,6 +8,17 @@
   max-width: 318px;
 }
 
+@media screen and (max-width: 1023px) {
+  .footer {
+    max-width: 282px;
+    padding-bottom: 60px;
+  }
+
+  .footer__image {
+    max-width: 282px;
+  }
+}
+
 @media screen and (max-width: 543px) {
   .footer {
     max-width: 282px;
