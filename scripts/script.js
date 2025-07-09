@@ -1,20 +1,30 @@
 const editButton = document.querySelector(".content__edit_button");
 const popup = document.querySelector(".popup");
-const closeButton = document.querySelector(".popup__close-button");
+const closeButton = document.querySelector(".popup__close_button");
+const form = document.querySelector(".popup__content");
 
-// Abre el popup
+const nameInput = form.querySelectorAll(".popup__input")[0];
+const aboutInput = form.querySelectorAll(".popup__input")[1];
+
+const profileName = document.querySelector(".content__name");
+const profileAbout = document.querySelector(".content__job");
+
 editButton.addEventListener("click", () => {
   popup.classList.add("popup_opened");
+
+  nameInput.value = profileName.textContent;
+  aboutInput.value = profileAbout.textContent;
 });
 
-// Cierra el popup con la X
 closeButton.addEventListener("click", () => {
   popup.classList.remove("popup_opened");
 });
 
-// Cierra el popup haciendo clic fuera del contenedor
-popup.addEventListener("click", (event) => {
-  if (event.target === popup) {
-    popup.classList.remove("popup_opened");
-  }
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  profileName.textContent = nameInput.value;
+  profileAbout.textContent = aboutInput.value;
+
+  popup.classList.remove("popup_opened");
 });
