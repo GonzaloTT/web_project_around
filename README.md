@@ -62,3 +62,5 @@ Para convertir este proyecto en una aplicación más robusta, se tienen consider
 -- Modo oscuro.
 -- Traducción automática de la interfaz a varios idiomas.
 -- Sistema de usuarios con login y registros.
+
+[GitHub Pages link](https://gonzalott.github.io/web_project_around/)
