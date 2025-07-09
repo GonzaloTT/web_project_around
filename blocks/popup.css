@@ -26,7 +26,12 @@
   transform: translate(-50%, -50%);
 }
 
-.popup__close_button {
+.popup__button {
+  color: #fff;
+  cursor: pointer;
+}
+
+.popup__button_close {
   font-size: 40px;
   background: none;
   border: none;
@@ -72,7 +77,7 @@
   margin-bottom: 30px;
 }
 
-.popup__save_button {
+.popup__button_save {
   background-color: #000;
   padding: 15px 124px;
   color: #fff;
@@ -98,6 +103,10 @@
 
   .popup__container {
     width: 282px;
+  }
+
+  .popup__button {
+    color: #fff;
   }
 
   .popup__close_button {
@@ -143,6 +152,10 @@
 
   .popup__container {
     width: 282px;
+  }
+
+  .popup__button {
+    color: #fff;
   }
 
   .popup__close_button {

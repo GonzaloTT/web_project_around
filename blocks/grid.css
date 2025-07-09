@@ -38,6 +38,10 @@
   margin: 0;
 }
 
+.grid__button {
+  color: #fff;
+}
+
 .grid__button_like {
   display: flex;
   align-items: center;
