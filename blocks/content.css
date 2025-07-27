@@ -58,7 +58,7 @@
   margin: 37px 165px 0 18px;
 }
 
-.content__edit_button:hover {
+.content__button_edit:hover {
   opacity: 0.5;
   cursor: pointer;
 }
@@ -77,7 +77,7 @@
   margin: 35px 0;
 }
 
-.content__add_button:hover {
+.content__button_add:hover {
   opacity: 0.5;
   cursor: pointer;
 }
