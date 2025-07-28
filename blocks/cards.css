@@ -1,4 +1,4 @@
-.grid {
+.cards {
   display: grid;
   max-width: 880px;
   margin: 50px 0 67px;
@@ -7,26 +7,33 @@
   grid-gap: 20px 17px;
 }
 
-.grid__item {
+.card {
   max-width: 282px;
   background-color: #fff;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
-.grid__image {
+.card__image {
   width: 100%;
+  height: 100%;
 }
 
-.grid__info {
+.card__image:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.card__info {
   display: flex;
   justify-content: space-between;
   max-width: 246px;
-  margin: 25px 15px 31px 21px;
+  padding: 25px 15px 31px 21px;
 }
 
-.grid__text {
+.card__text {
   color: #000;
   font-family: Inter;
   font-weight: 900;
@@ -36,33 +43,61 @@
   white-space: nowrap;
   overflow: hidden;
   margin: 0;
+  width: 200px;
 }
 
-.grid__button {
+.card__button {
   color: #fff;
 }
 
-.grid__button_like {
+.card__button_trash {
+  position: absolute;
+  top: 18px;
+  right: 15px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  z-index: 1;
+}
+
+.card__button_trash:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.card__button_trash_image {
+  width: 18px;
+  height: 19px;
+}
+
+.card__button_like {
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: transparent;
   border: none;
   padding: 0;
-}
-
-.grid__button_like:hover {
-  opacity: 0.5;
-  cursor: pointer;
-}
-
-.grid__button_like_image {
+  background-image: url("../images/Like.png");
+  background-size: cover;
+  background-repeat: no-repeat;
   width: 21px;
   height: 19px;
 }
 
+.card__button_like_active {
+  background-image: url("../images/Like_active.png");
+}
+
+.card__button_like:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 1023px) {
-  .grid {
+  .cards {
     max-width: 282px;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(6, 1fr);
@@ -72,7 +107,7 @@
 }
 
 @media screen and (max-width: 543px) {
-  .grid {
+  .cards {
     max-width: 282px;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(6, 1fr);

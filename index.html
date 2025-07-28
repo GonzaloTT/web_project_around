@@ -47,7 +47,7 @@
           </button>
         </section>
 
-        <div class="popup">
+        <div class="popup" id="popup_edit">
           <div class="popup__container">
             <button class="popup__button popup__button_close">🞩</button>
             <form class="popup__content">
@@ -87,110 +87,72 @@
           </div>
         </div>
 
-        <section class="grid">
-          <div class="grid__item">
-            <img
-              src="images/Image_1.png"
-              alt="Valle de Yosemite"
-              class="grid__image"
-            />
-            <div class="grid__info">
-              <p class="grid__text">Valle de Yosemite</p>
-              <button class="grid__button grid__button_like">
-                <img
-                  src="images/Like.png"
-                  alt="Like"
-                  class="grid__button grid__button_like_image"
+        <div class="popup" id="popup_add">
+          <div class="popup__container">
+            <button class="popup__button popup__button_close">🞩</button>
+            <form class="popup__content">
+              <h3 class="popup__title">Nuevo lugar</h3>
+              <fieldset class="popup__form">
+                <input
+                  type="text"
+                  class="popup__input"
+                  placeholder="Titulo"
+                  id="title_input"
+                  required
                 />
-              </button>
+                <img
+                  src="images/Input_element.svg"
+                  alt="Input element"
+                  class="popup__input popup__input_element"
+                />
+                <input
+                  type="text"
+                  class="popup__input"
+                  placeholder="Enlace a la imagen"
+                  id="url_input"
+                  required
+                />
+                <img
+                  src="images/Input_element.svg"
+                  alt="Input element"
+                  class="popup__input popup__input_element"
+                />
+              </fieldset>
+              <fieldset class="popup__form">
+                <button class="popup__button popup__button_save" type="submit">
+                  Guardar
+                </button>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+
+        <div class="popup" id="popup_image">
+          <div class="popup__container popup__container_image">
+            <button class="popup__button popup__button_close">🞩</button>
+            <img src="#" alt="" class="popup__image" />
+            <p class="popup__text"></p>
+          </div>
+        </div>
+
+        <section class="cards"></section>
+
+        <template id="template_card">
+          <div class="card">
+            <button class="card__button card__button_trash">
+              <img
+                src="images/Trash_button.png"
+                alt="Trash"
+                class="card__button card__button_trash_image"
+              />
+            </button>
+            <img src="" alt="" class="card__image" />
+            <div class="card__info">
+              <p class="card__text"></p>
+              <button class="card__button card__button_like"></button>
             </div>
           </div>
-          <div class="grid__item">
-            <img
-              src="images/Image_2.png"
-              alt="Valle de Yosemite"
-              class="grid__image"
-            />
-            <div class="grid__info">
-              <p class="grid__text">Lago Louise</p>
-              <button class="grid__button grid__button_like">
-                <img
-                  src="images/Like.png"
-                  alt="Like"
-                  class="grid__button grid__button_like_image"
-                />
-              </button>
-            </div>
-          </div>
-          <div class="grid__item">
-            <img
-              src="images/Image_3.png"
-              alt="Valle de Yosemite"
-              class="grid__image"
-            />
-            <div class="grid__info">
-              <p class="grid__text">Montañas Calvas</p>
-              <button class="grid__button grid__button_like">
-                <img
-                  src="images/Like.png"
-                  alt="Like"
-                  class="grid__button grid__button_like_image"
-                />
-              </button>
-            </div>
-          </div>
-          <div class="grid__item">
-            <img
-              src="images/Image_4.png"
-              alt="Valle de Yosemite"
-              class="grid__image"
-            />
-            <div class="grid__info">
-              <p class="grid__text">Latemar</p>
-              <button class="grid__button grid__button_like">
-                <img
-                  src="images/Like.png"
-                  alt="Like"
-                  class="grid__button grid__button_like_image"
-                />
-              </button>
-            </div>
-          </div>
-          <div class="grid__item">
-            <img
-              src="images/Image_5.png"
-              alt="Valle de Yosemite"
-              class="grid__image"
-            />
-            <div class="grid__info">
-              <p class="grid__text">Vanois National Park</p>
-              <button class="grid__button grid__button_like">
-                <img
-                  src="images/Like.png"
-                  alt="Like"
-                  class="grid__button grid__button_like_image"
-                />
-              </button>
-            </div>
-          </div>
-          <div class="grid__item">
-            <img
-              src="images/Image_6.png"
-              alt="Valle de Yosemite"
-              class="grid__image"
-            />
-            <div class="grid__info">
-              <p class="grid__text">Lago di Braies</p>
-              <button class="grid__button grid__button_like">
-                <img
-                  src="images/Like.png"
-                  alt="Like"
-                  class="grid__button grid__button_like_image"
-                />
-              </button>
-            </div>
-          </div>
-        </section>
+        </template>
       </main>
       <footer class="footer">
         <img src="images/Footer.svg" alt="Footer" class="footer__image" />
