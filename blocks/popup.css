@@ -42,7 +42,7 @@
   cursor: pointer;
 }
 
-.popup__close_button:hover {
+.popup__button_close:hover {
   opacity: 0.8;
 }
 
