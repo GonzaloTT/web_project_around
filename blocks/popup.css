@@ -155,7 +155,7 @@
     margin-bottom: 30px;
   }
 
-  .popup__save_button {
+  .popup__button_save {
     max-width: 238px;
     padding: 14px 92px;
     margin: 16px 0 0;
@@ -222,7 +222,7 @@
     margin-bottom: 30px;
   }
 
-  .popup__save_button {
+  .popup__button_save {
     max-width: 238px;
     padding: 14px 92px;
     margin: 16px 0 0;
