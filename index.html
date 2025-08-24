@@ -46,7 +46,7 @@
         <div class="popup" id="popup_edit">
           <div class="popup__container">
             <button class="popup__button popup__button_close">🞩</button>
-            <form class="popup__content">
+            <form class="popup__content" id="form" novalidate>
               <h3 class="popup__title">Editar perfil</h3>
               <fieldset class="popup__form">
                 <input
@@ -54,25 +54,21 @@
                   class="popup__input"
                   placeholder="Nombre"
                   id="name_input"
+                  minlength="2"
+                  maxlength="40"
                   required
                 />
-                <img
-                  src="images/Input_element.svg"
-                  alt="Input element"
-                  class="popup__input popup__input_element"
-                />
+                <span class="popup__input popup__input_error"></span>
                 <input
                   type="text"
                   class="popup__input"
                   placeholder="Acerca de mi"
                   id="about_input"
+                  minlength="2"
+                  maxlength="200"
                   required
                 />
-                <img
-                  src="images/Input_element.svg"
-                  alt="Input element"
-                  class="popup__input popup__input_element"
-                />
+                <span class="popup__input popup__input_error"></span>
               </fieldset>
               <fieldset class="popup__form">
                 <button class="popup__button popup__button_save" type="submit">
@@ -94,25 +90,19 @@
                   class="popup__input"
                   placeholder="Titulo"
                   id="title_input"
+                  minlength="2"
+                  maxlength="30"
                   required
                 />
-                <img
-                  src="images/Input_element.svg"
-                  alt="Input element"
-                  class="popup__input popup__input_element"
-                />
+                <span class="popup__input popup__input_error"></span>
                 <input
-                  type="text"
+                  type="url"
                   class="popup__input"
                   placeholder="Enlace a la imagen"
                   id="url_input"
                   required
                 />
-                <img
-                  src="images/Input_element.svg"
-                  alt="Input element"
-                  class="popup__input popup__input_element"
-                />
+                <span class="popup__input popup__input_error"></span>
               </fieldset>
               <fieldset class="popup__form">
                 <button class="popup__button popup__button_save" type="submit">
@@ -154,6 +144,7 @@
         <img src="images/Footer.svg" alt="Footer" class="footer__image" />
       </footer>
     </div>
+    <script src="scripts/validate.js"></script>
     <script src="scripts/index.js"></script>
   </body>
 </html>

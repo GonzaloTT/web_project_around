@@ -70,10 +70,17 @@
 .popup__input {
   width: 358px;
   border: none;
+  border-bottom: 1px solid #ccc;
+  outline: none;
   margin-bottom: 14px;
 }
 
-.popup__input_element {
+.popup__input_error {
+  font-size: 12px;
+  width: 362px;
+  color: red;
+  display: block;
+  border: none;
   margin-bottom: 30px;
 }
 
@@ -92,7 +99,17 @@
   text-align: center;
 }
 
-.popup__save_button:hover {
+.popup__button_save:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.popup__button_disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.popup__button_save:hover {
   opacity: 0.8;
 }
 
