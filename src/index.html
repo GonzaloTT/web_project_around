@@ -8,35 +8,36 @@
     <meta name="keywords" content="Around The U.S., Preyecto TripleTen" />
     <title>Around The U.S. TripleTen</title>
     <link rel="shortcut icon" href="favicon.ico" />
-    <link rel="stylesheet" href="./pages/index.css" />
+    <link rel="stylesheet" href="./page/index.css" />
   </head>
   <body>
     <div class="page">
       <header class="header">
         <img
-          src="images/Around.svg"
+          src="../images/Around.svg"
           alt="Around_The_U.S."
           class="header__title"
         />
-        <img src="images/Vector.svg" alt="Vector" class="header__element" />
+        <img src="../images/Vector.svg" alt="Vector" class="header__element" />
       </header>
+
       <main class="content">
         <section class="content__profile">
-          <img src="images/Person.png" alt="Person" class="content__image" />
+          <img src="../images/Person.png" alt="Person" class="content__image" />
           <div class="content__info">
             <h1 class="content__name">Jacques Cousteau</h1>
             <h4 class="content__job">Explorador</h4>
           </div>
           <button class="content__button content__button_edit">
             <img
-              src="images/Edit_button.svg"
+              src="../images/Edit_button.svg"
               alt="Edit_Button"
               class="content__button content__button_edit_image"
             />
           </button>
           <button class="content__button content__button_add">
             <img
-              src="images/Add_button.svg"
+              src="../images/Add_button.svg"
               alt="Add_button"
               class="content__button content__button_add_image"
             />
@@ -46,30 +47,48 @@
         <div class="popup" id="popup_edit">
           <div class="popup__container">
             <button class="popup__button popup__button_close">🞩</button>
-            <form class="popup__content" id="form" novalidate>
+
+            <form
+              class="popup__content"
+              id="form"
+              name="edit-profile"
+              novalidate
+            >
               <h3 class="popup__title">Editar perfil</h3>
+
               <fieldset class="popup__form">
                 <input
                   type="text"
                   class="popup__input"
                   placeholder="Nombre"
                   id="name_input"
+                  name="name_input"
                   minlength="2"
                   maxlength="40"
                   required
                 />
-                <span class="popup__input popup__input_error"></span>
+
+                <span
+                  class="popup__input popup__input_error"
+                  id="name_input-error"
+                ></span>
+
                 <input
                   type="text"
                   class="popup__input"
                   placeholder="Acerca de mi"
                   id="about_input"
+                  name="about_input"
                   minlength="2"
                   maxlength="200"
                   required
                 />
-                <span class="popup__input popup__input_error"></span>
+                <span
+                  class="popup__input popup__input_error"
+                  id="about_input-error"
+                ></span>
               </fieldset>
+
               <fieldset class="popup__form">
                 <button class="popup__button popup__button_save" type="submit">
                   Guardar
@@ -82,28 +101,40 @@
         <div class="popup" id="popup_add">
           <div class="popup__container">
             <button class="popup__button popup__button_close">🞩</button>
-            <form class="popup__content">
+
+            <form class="popup__content" name="add-card" novalidate>
               <h3 class="popup__title">Nuevo lugar</h3>
+
               <fieldset class="popup__form">
                 <input
                   type="text"
                   class="popup__input"
                   placeholder="Titulo"
                   id="title_input"
+                  name="title_input"
                   minlength="2"
                   maxlength="30"
                   required
                 />
-                <span class="popup__input popup__input_error"></span>
+                <span
+                  class="popup__input popup__input_error"
+                  id="title_input-error"
+                ></span>
+
                 <input
                   type="url"
                   class="popup__input"
                   placeholder="Enlace a la imagen"
                   id="url_input"
+                  name="url_input"
                   required
                 />
-                <span class="popup__input popup__input_error"></span>
+                <span
+                  class="popup__input popup__input_error"
+                  id="url_input-error"
+                ></span>
               </fieldset>
+
               <fieldset class="popup__form">
                 <button class="popup__button popup__button_save" type="submit">
                   Crear
@@ -127,7 +158,7 @@
           <div class="card">
             <button class="card__button card__button_trash">
               <img
-                src="images/Trash_button.png"
+                src="../images/Trash_button.png"
                 alt="Trash"
                 class="card__button card__button_trash_image"
               />
@@ -140,10 +171,12 @@
           </div>
         </template>
       </main>
+
       <footer class="footer">
-        <img src="images/Footer.svg" alt="Footer" class="footer__image" />
+        <img src="../images/Footer.svg" alt="Footer" class="footer__image" />
       </footer>
     </div>
-    <script type="module" src="./scripts/index.js"></script>
+
+    <script type="module" src="./page/index.js"></script>
   </body>
 </html>
