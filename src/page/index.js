@@ -59,10 +59,10 @@ function createCard(item) {
 
 const cardSection = new Section(
   {
-    items: initialCards,
+    items: [...initialCards].reverse(), // mantiene el orden visual original
     renderer: (item) => {
       const cardElement = createCard(item);
-      cardSection.addItem(cardElement);
+      cardSection.addItem(cardElement); // ahora añade al inicio
     },
   },
   ".cards"
