@@ -23,11 +23,16 @@
 
       <main class="content">
         <section class="content__profile">
-          <img
-            src="../images/Person.png"
-            alt="Person"
-            class="content__image content__avatar"
-          />
+          <div class="content__avatar_container">
+            <img
+              src="../images/Person.png"
+              alt="Person"
+              class="content__image content__avatar"
+            />
+            <button
+              class="content__button content__button_avatar_edit"
+            ></button>
+          </div>
           <div class="content__info">
             <h1 class="content__name">Jacques Cousteau</h1>
             <h4 class="content__job">Explorador</h4>
@@ -142,6 +147,37 @@
               <fieldset class="popup__form">
                 <button class="popup__button popup__button_save" type="submit">
                   Crear
+                </button>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+
+        <div class="popup" id="popup_avatar">
+          <div class="popup__container">
+            <button class="popup__button popup__button_close">🞩</button>
+
+            <form class="popup__content" name="edit-avatar" novalidate>
+              <h3 class="popup__title">Cambiar foto de perfil</h3>
+
+              <fieldset class="popup__form">
+                <input
+                  type="url"
+                  class="popup__input"
+                  placeholder="Enlace a la imagen"
+                  id="avatar_input"
+                  name="avatar_input"
+                  required
+                />
+                <span
+                  class="popup__input popup__input_error"
+                  id="avatar_input-error"
+                ></span>
+              </fieldset>
+
+              <fieldset class="popup__form">
+                <button class="popup__button popup__button_save" type="submit">
+                  Guardar
                 </button>
               </fieldset>
             </form>

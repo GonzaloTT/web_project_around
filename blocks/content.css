@@ -87,6 +87,47 @@
   height: 22px;
 }
 
+.content__avatar_container {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 20px;
+}
+
+.content__avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content__button_avatar_edit {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  padding: 0;
+  margin: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  background-image: url("../images/Edit_button.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 26px;
+  opacity: 0;
+}
+
+.content__avatar_container:hover .content__button_avatar_edit {
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 1;
+}
+
 @media screen and (max-width: 1023px) {
   .content {
     max-width: 282px;

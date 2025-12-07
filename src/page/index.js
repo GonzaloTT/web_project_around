@@ -33,6 +33,8 @@ const popupEditSelector = "#popup_edit";
 const popupAddSelector = "#popup_add";
 const popupImageSelector = "#popup_image";
 const popupConfirmSelector = "#popup_confirm";
+const popupAvatarSelector = "#popup_avatar";
+const avatarEditButton = document.querySelector(".content__button_avatar_edit");
 
 const editForm = document.querySelector(`${popupEditSelector} form`);
 const addForm = document.querySelector(`${popupAddSelector} form`);
@@ -105,6 +107,29 @@ popupWithImage.setEventListeners();
 
 const popupConfirm = new PopupWithConfirmation(popupConfirmSelector);
 popupConfirm.setEventListeners();
+
+const popupEditAvatar = new PopupWithForm(popupAvatarSelector, (formData) => {
+  const originalButtonText = popupEditAvatar.getButtonText();
+  popupEditAvatar.setButtonText("Guardando...");
+
+  api
+    .updateAvatar(formData.avatar_input)
+    .then((userData) => {
+      userInfo.setUserInfo({
+        name: userData.name,
+        job: userData.about,
+        avatar: userData.avatar,
+      });
+      popupEditAvatar.close();
+    })
+    .catch((err) => {
+      console.error("Error al actualizar el avatar:", err);
+    })
+    .finally(() => {
+      popupEditAvatar.setButtonText(originalButtonText);
+    });
+});
+popupEditAvatar.setEventListeners();
 
 const popupEditProfile = new PopupWithForm(popupEditSelector, (formData) => {
   const originalButtonText = popupEditProfile.getButtonText();
@@ -179,6 +204,10 @@ addButton.addEventListener("click", () => {
     formValidators[addForm.getAttribute("name")].resetValidation();
   }
   popupAddCard.open();
+});
+
+avatarEditButton.addEventListener("click", () => {
+  popupEditAvatar.open();
 });
 
 api

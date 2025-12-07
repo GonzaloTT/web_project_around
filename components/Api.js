@@ -93,6 +93,21 @@ class Api {
       return Promise.reject(`Error al quitar like: ${res.status}`);
     });
   }
+
+  updateAvatar(avatarLink) {
+    return fetch(`${this._baseUrl}/users/me/avatar`, {
+      method: "PATCH",
+      headers: this._headers,
+      body: JSON.stringify({
+        avatar: avatarLink,
+      }),
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(`Error al actualizar el avatar: ${res.status}`);
+    });
+  }
 }
 
 export default Api;
