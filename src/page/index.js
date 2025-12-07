@@ -5,6 +5,7 @@ import PopupWithForm from "../../components/PopupWithForms.js";
 import UserInfo from "../../components/UserInfo.js";
 import FormValidator from "../../components/FormValidator.js";
 import Api from "../../components/Api.js";
+import PopupWithConfirmation from "../../components/PopupWithConfirmation.js";
 
 const apiConfig = {
   baseUrl: "https://around-api.es.tripleten-services.com/v1",
@@ -31,6 +32,7 @@ const addButton = document.querySelector(".content__button_add");
 const popupEditSelector = "#popup_edit";
 const popupAddSelector = "#popup_add";
 const popupImageSelector = "#popup_image";
+const popupConfirmSelector = "#popup_confirm";
 
 const editForm = document.querySelector(`${popupEditSelector} form`);
 const addForm = document.querySelector(`${popupAddSelector} form`);
@@ -47,14 +49,50 @@ const userInfo = new UserInfo({
 });
 
 let cardSection;
+let userId;
 
 function createCard(item) {
   const card = new Card(
     {
-      name: item.name,
-      link: item.link,
+      data: item,
+      userId: userId,
       handleCardClick: (name, link) => {
         popupWithImage.open(name, link);
+      },
+
+      handleDeleteClick: (cardId) => {
+        const executeDelete = () => {
+          api
+            .deleteCard(cardId)
+            .then(() => {
+              card.removeCardElement();
+              popupConfirm.close();
+            })
+            .catch((err) => {
+              console.error("Error al eliminar tarjeta:", err);
+            });
+        };
+        popupConfirm.setSubmitAction(executeDelete);
+
+        popupConfirm.open();
+      },
+
+      handleLikeClick: (cardId) => {
+        if (card.isLiked()) {
+          api
+            .removeLike(cardId)
+            .then((updateCard) => {
+              card.setLikes(updateCard.likes);
+            })
+            .catch((err) => console.error(err));
+        } else {
+          api
+            .addLike(cardId)
+            .then((updateCard) => {
+              card.setLikes(updateCard.likes);
+            })
+            .catch((err) => console.error(err));
+        }
       },
     },
     "#template_card"
@@ -64,6 +102,9 @@ function createCard(item) {
 
 const popupWithImage = new PopupWithImage(popupImageSelector);
 popupWithImage.setEventListeners();
+
+const popupConfirm = new PopupWithConfirmation(popupConfirmSelector);
+popupConfirm.setEventListeners();
 
 const popupEditProfile = new PopupWithForm(popupEditSelector, (formData) => {
   const originalButtonText = popupEditProfile.getButtonText();
@@ -143,6 +184,7 @@ addButton.addEventListener("click", () => {
 api
   .getUserInfo()
   .then((userData) => {
+    userId = userData._id;
     userInfo.setUserInfo({
       name: userData.name,
       job: userData.about,

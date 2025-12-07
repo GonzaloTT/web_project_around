@@ -45,7 +45,7 @@ class Api {
   addCard({ name, link }) {
     return fetch(`${this._baseUrl}/cards`, {
       method: `POST`,
-      header: this._headers,
+      headers: this._headers,
       body: JSON.stringify({
         name: name,
         link: link,
@@ -55,6 +55,42 @@ class Api {
         return res.json();
       }
       return Promise.reject(`Error al agregar tarjeta: ${res.status}`);
+    });
+  }
+
+  deleteCard(cardId) {
+    return fetch(`${this._baseUrl}/cards/${cardId}`, {
+      method: "DELETE",
+      headers: this._headers,
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(`Error al eliminar tarjeta: ${res.status}`);
+    });
+  }
+
+  addLike(cardId) {
+    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+      method: `PUT`,
+      headers: this._headers,
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(`Error al dar like: ${res.status}`);
+    });
+  }
+
+  removeLike(cardId) {
+    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+      method: `DELETE`,
+      headers: this._headers,
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(`Error al quitar like: ${res.status}`);
     });
   }
 }
