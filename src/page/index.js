@@ -25,15 +25,6 @@ const config = {
   errorClass: "popup__error_visible",
 };
 
-const initialCards = [
-  { name: "Valle de Yosemite", link: "../images/Image_1.png" },
-  { name: "Lago Louise", link: "../images/Image_2.png" },
-  { name: "Montañas Calvas", link: "../images/Image_3.png" },
-  { name: "Latemar", link: "../images/Image_4.png" },
-  { name: "Parque Nacional de la Vanoise", link: "../images/Image_5.png" },
-  { name: "Lago di Braies", link: "../images/Image_6.png" },
-];
-
 const editButton = document.querySelector(".content__button_edit");
 const addButton = document.querySelector(".content__button_add");
 
@@ -55,6 +46,8 @@ const userInfo = new UserInfo({
   avatarSelector: ".content__avatar",
 });
 
+let cardSection;
+
 function createCard(item) {
   const card = new Card(
     {
@@ -68,19 +61,6 @@ function createCard(item) {
   );
   return card.generateCard();
 }
-
-const cardSection = new Section(
-  {
-    items: [...initialCards].reverse(),
-    renderer: (item) => {
-      const cardElement = createCard(item);
-      cardSection.addItem(cardElement);
-    },
-  },
-  ".cards"
-);
-
-cardSection.renderItems();
 
 const popupWithImage = new PopupWithImage(popupImageSelector);
 popupWithImage.setEventListeners();
@@ -140,4 +120,24 @@ api
   })
   .catch((err) => {
     console.error("Error al cargar la información del usuario:", err);
+  });
+
+api
+  .getInitialCards()
+  .then((cards) => {
+    cardSection = new Section(
+      {
+        items: cards,
+        renderer: (item) => {
+          const cardElement = createCard(item);
+          cardSection.addItem(cardElement);
+        },
+      },
+      ".cards"
+    );
+
+    cardSection.renderItems();
+  })
+  .catch((err) => {
+    console.error("Error al cargar las tarjetas iniciales:", err);
   });
