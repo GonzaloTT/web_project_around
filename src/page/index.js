@@ -92,12 +92,26 @@ const popupEditProfile = new PopupWithForm(popupEditSelector, (formData) => {
 popupEditProfile.setEventListeners();
 
 const popupAddCard = new PopupWithForm(popupAddSelector, (formData) => {
-  const newCard = createCard({
-    name: formData.title_input,
-    link: formData.url_input,
-  });
-  cardSection.addItem(newCard);
-  popupAddCard.close();
+  const originalButtonText = popupAddCard.getButtonText();
+  popupAddCard.setButtonText("Creando...");
+
+  api
+    .addCard({
+      name: formData.title_input,
+      link: formData.url_input,
+    })
+    .then((newCardData) => {
+      const newCardElement = createCard(newCardData);
+      cardSection.addItem(newCardElement);
+
+      popupAddCard.close();
+    })
+    .catch((err) => {
+      console.error("Error al agregar tarjeta:", err);
+    })
+    .finally(() => {
+      popupAddCard.setButtonText(originalButtonText);
+    });
 });
 popupAddCard.setEventListeners();
 
