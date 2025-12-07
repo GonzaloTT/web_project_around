@@ -4,6 +4,17 @@ import PopupWithImage from "../../components/PopupWithImage.js";
 import PopupWithForm from "../../components/PopupWithForms.js";
 import UserInfo from "../../components/UserInfo.js";
 import FormValidator from "../../components/FormValidator.js";
+import Api from "../../components/Api.js";
+
+const apiConfig = {
+  baseUrl: "https://around-api.es.tripleten-services.com/v1",
+  headers: {
+    authorization: "4d4a65e1-ea25-4bad-8a48-f449b3c6260c",
+    "Content-Type": "application/json",
+  },
+};
+
+const api = new Api(apiConfig);
 
 const config = {
   formSelector: "form",
@@ -41,6 +52,7 @@ const urlInput = addForm.querySelector("#url_input");
 const userInfo = new UserInfo({
   nameSelector: ".content__name",
   jobSelector: ".content__job",
+  avatarSelector: ".content__avatar",
 });
 
 function createCard(item) {
@@ -116,3 +128,16 @@ addButton.addEventListener("click", () => {
   }
   popupAddCard.open();
 });
+
+api
+  .getUserInfo()
+  .then((userData) => {
+    userInfo.setUserInfo({
+      name: userData.name,
+      job: userData.about,
+      avatar: userData.avatar,
+    });
+  })
+  .catch((err) => {
+    console.error("Error al cargar la información del usuario:", err);
+  });
