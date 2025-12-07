@@ -66,11 +66,28 @@ const popupWithImage = new PopupWithImage(popupImageSelector);
 popupWithImage.setEventListeners();
 
 const popupEditProfile = new PopupWithForm(popupEditSelector, (formData) => {
-  userInfo.setUserInfo({
-    name: formData.name_input,
-    job: formData.about_input,
-  });
-  popupEditProfile.close();
+  const originalButtonText = popupEditProfile.getButtonText();
+  popupEditProfile.setButtonText("Guardando...");
+
+  api
+    .updateUserInfo({
+      name: formData.name_input,
+      about: formData.about_input,
+    })
+    .then((userData) => {
+      userInfo.setUserInfo({
+        name: userData.name,
+        job: userData.about,
+        avatar: userData.avatar,
+      });
+      popupEditProfile.close();
+    })
+    .catch((err) => {
+      console.error("Error al guardar perfil:", err);
+    })
+    .finally(() => {
+      popupEditProfile.setButtonText(originalButtonText);
+    });
 });
 popupEditProfile.setEventListeners();
 
